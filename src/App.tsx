@@ -1,8 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { styled } from 'styled-components'
 import { AxiosError } from 'axios'
-import { Instance } from './apis/instance'
-import { IssueDTO } from './apis/issue'
+import { ISSUES_PER_PAGE, IssueDTO, getIssuesRequest } from './apis/issue'
 import PageRouter from './pages/PageRouter'
 
 interface AppContextType {
@@ -22,19 +21,11 @@ function App() {
   const getIssues = () => {
     if (isEndOfPage) return
 
-    const PER_PAGE = 20
-    const params = {
-      state: 'open',
-      sort: 'comments',
-      per_page: PER_PAGE,
-      page: issues.length / PER_PAGE + 1,
-    }
-
     setIsLoading(true)
-    Instance.get<IssueDTO[]>(`/repos/facebook/react/issues`, { params })
-      .then((res) => {
-        setIssues(issues.concat(...res.data))
-        setIsEndOfPage(res.data.length < PER_PAGE)
+    getIssuesRequest(issues.length / ISSUES_PER_PAGE + 1)
+      .then((data) => {
+        setIssues(issues.concat(...data))
+        setIsEndOfPage(data.length < ISSUES_PER_PAGE)
       })
       .catch((e: AxiosError) => alert(e.message))
       .finally(() => setIsLoading(false))

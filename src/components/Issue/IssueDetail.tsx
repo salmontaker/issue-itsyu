@@ -1,22 +1,17 @@
 import { useParams } from 'react-router-dom'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { AxiosError } from 'axios'
-import { Instance } from '../../apis/instance'
-import { IssueDTO } from '../../apis/issue'
+import { IssueDTO, getIssueDetailRequest } from '../../apis/issue'
 import { useEffect, useState } from 'react'
 
 function IssueDetail() {
   const { number } = useParams()
   const [issue, setIssue] = useState<IssueDTO>()
 
-  const getIssueDetail = () => {
-    Instance.get<IssueDTO>(`/repos/facebook/react/issues/${number}`)
-      .then((res) => setIssue(res.data))
-      .catch((e: AxiosError) => alert(e.message))
-  }
-
   useEffect(() => {
-    getIssueDetail()
+    getIssueDetailRequest(Number(number))
+      .then((data) => setIssue(data))
+      .catch((e: AxiosError) => alert(e.message))
   }, [])
 
   return (
