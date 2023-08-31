@@ -1,12 +1,9 @@
-interface Props {
-  organization?: string
-  repository?: string
-}
+import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../../apis/issue'
 
-function IssueHeader({ organization, repository }: Props) {
+function IssueHeader() {
   return (
     <div>
-      {organization} / {repository}
+      {ORGANIZATION_NAME} / {REPOSITORY_NAME}
     </div>
   )
 }

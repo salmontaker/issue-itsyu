@@ -4,7 +4,7 @@ import IssueList from '../components/Issue/IssueList'
 function IssuePage() {
   return (
     <>
-      <IssueHeader organization="facebook" repository="react" />
+      <IssueHeader />
       <IssueList />
     </>
   )
