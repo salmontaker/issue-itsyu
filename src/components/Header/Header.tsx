@@ -1,11 +1,12 @@
 import { ORGANIZATION_NAME, REPOSITORY_NAME } from '../../apis/issue'
+import * as S from './Header.styled'
 
-function IssueHeader() {
+function Header() {
   return (
-    <div>
+    <S.Header>
       {ORGANIZATION_NAME} / {REPOSITORY_NAME}
-    </div>
+    </S.Header>
   )
 }
 
-export default IssueHeader
+export default Header

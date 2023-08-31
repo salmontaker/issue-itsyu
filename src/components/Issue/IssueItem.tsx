@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
-import { styled } from 'styled-components'
 import { IssueDTO } from '../../apis/issue'
+import * as S from './IssueItem.styled'
 
 interface Props extends Omit<IssueDTO, 'body' | 'user'> {
   author: string
@@ -10,17 +9,17 @@ interface Props extends Omit<IssueDTO, 'body' | 'user'> {
 
 function IssueItem({ number, title, author, created_at, comments }: Props) {
   return (
-    <StyledLink to={`/detail/${number}`}>
-      #{number} {title}
-      <br />
-      작성자 : {author}, 작성일 : {created_at}, 코멘트 : {comments}
-    </StyledLink>
+    <S.IssueItem>
+      <S.IssueLink to={`/detail/${number}`}>
+        <S.IssueItemHead>
+          #{number} {title}
+        </S.IssueItemHead>
+        <S.IssueItemBody>
+          작성자 : {author}, 작성일 : {created_at}, 코멘트 : {comments}
+        </S.IssueItemBody>
+      </S.IssueLink>
+    </S.IssueItem>
   )
 }
-
-const StyledLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-`
 
 export default IssueItem

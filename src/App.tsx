@@ -1,8 +1,10 @@
 import { createContext, useContext, useState } from 'react'
-import { styled } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { AxiosError } from 'axios'
 import { ISSUES_PER_PAGE, IssueDTO, getIssuesRequest } from './apis/issue'
 import PageRouter from './pages/PageRouter'
+import { Theme } from './styles/base/DefaultTheme'
+import GlobalStyle from './styles/base/GlobalStyles'
 
 interface AppContextType {
   issues: IssueDTO[]
@@ -32,17 +34,14 @@ function App() {
   }
 
   return (
-    <AppContext.Provider value={{ issues, isEndOfPage, isLoading, getIssues }}>
-      <StyledDiv>
+    <ThemeProvider theme={Theme}>
+      <AppContext.Provider value={{ issues, isEndOfPage, isLoading, getIssues }}>
+        <GlobalStyle />
         <PageRouter />
-      </StyledDiv>
-    </AppContext.Provider>
+      </AppContext.Provider>
+    </ThemeProvider>
   )
 }
-
-const StyledDiv = styled.div`
-  justify-content: center;
-`
 
 export const useAppContext = () => {
   const context = useContext(AppContext)

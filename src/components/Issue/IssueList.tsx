@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
-import { styled } from 'styled-components'
 import { useAppContext } from '../../App'
+import * as S from './IssueList.styled'
 import IssueItem from './IssueItem'
 import adbanner from '../../assets/adbanner.webp'
 
@@ -28,25 +28,23 @@ function IssueList() {
   }, [scrollTarget, isLoading])
 
   return (
-    <StyledUl>
+    <S.IssueList>
       {issues.map((issue, index) => (
         <>
-          <StyledLi>
-            <IssueItem
-              key={issue.number}
-              number={issue.number}
-              title={issue.title}
-              author={issue.user.login}
-              created_at={issue.created_at}
-              comments={issue.comments}
-            />
-          </StyledLi>
+          <IssueItem
+            key={issue.number}
+            number={issue.number}
+            title={issue.title}
+            author={issue.user.login}
+            created_at={issue.created_at}
+            comments={issue.comments}
+          />
           {(index + 1) % 4 === 0 && (
-            <StyledLi>
+            <li>
               <a href="https://www.wanted.co.kr/">
-                <StyledAdBanner src={adbanner} />
+                <img width={100} src={adbanner} />
               </a>
-            </StyledLi>
+            </li>
           )}
         </>
       ))}
@@ -57,24 +55,8 @@ function IssueList() {
           {isEndOfPage ? '가져올 데이터가 없어요!' : '스크롤 해서 데이터 가져오기'}
         </div>
       )}
-    </StyledUl>
+    </S.IssueList>
   )
 }
-
-const StyledUl = styled.ul`
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding-left: 0;
-  gap: 16px;
-`
-
-const StyledLi = styled.li`
-  background-color: lightcyan;
-`
-
-const StyledAdBanner = styled.img`
-  width: 100px;
-`
 
 export default IssueList
