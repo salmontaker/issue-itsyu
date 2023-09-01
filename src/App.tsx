@@ -17,6 +17,7 @@ export const AppContext = createContext<AppContextType | null>(null)
 
 function App() {
   const [issues, setIssues] = useState<IssueDTO[]>([])
+  const [page, setPage] = useState(1)
   const [isEndOfPage, setIsEndOfPage] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -24,9 +25,10 @@ function App() {
     if (isEndOfPage) return
 
     setIsLoading(true)
-    getIssuesRequest(issues.length / ISSUES_PER_PAGE + 1)
+    getIssuesRequest(page)
       .then((data) => {
-        setIssues(issues.concat(...data))
+        setIssues(issues.concat(data.filter((issue) => !issue.pull_request)))
+        setPage(page + 1)
         setIsEndOfPage(data.length < ISSUES_PER_PAGE)
       })
       .catch((e: AxiosError) => alert(e.message))

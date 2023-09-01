@@ -7,6 +7,7 @@ export interface IssueDTO {
   created_at: string
   comments: number
   user: UserDTO
+  pull_request: object
 }
 
 export interface UserDTO {

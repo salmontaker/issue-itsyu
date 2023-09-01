@@ -1,7 +1,7 @@
 import { IssueDTO } from '../../apis/issue'
 import * as S from './IssueItem.styled'
 
-interface Props extends Omit<IssueDTO, 'body' | 'user'> {
+interface Props extends Omit<IssueDTO, 'body' | 'user' | 'pull_request'> {
   author: string
   created_at: string
   comments: number
