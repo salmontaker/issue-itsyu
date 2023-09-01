@@ -18,12 +18,25 @@
 
 ### Network & Route
 
-<img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=React Router&logoColor=white"> 
-<img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white"/>
+<img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=React Router&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white"/>
 
 ### Styling
 
 <img src="https://img.shields.io/badge/styled component-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/react markdown-brown?style=for-the-badge&logo=npm">
+
+## 프로젝트 데모
+
+### 이슈 목록 페이지
+
+https://github.com/salmontaker/issue-itsyu/assets/93248349/dbf70203-b73d-47c1-b32d-1973e9aa8179
+
+### 이슈 상세페이지
+
+https://github.com/salmontaker/issue-itsyu/assets/93248349/98da4477-9706-46e3-8d44-a1397bd934c9
+
+### 광고 배너 이동
+
+https://github.com/salmontaker/issue-itsyu/assets/93248349/74a7a8f9-cb52-45f5-8fed-6c7772665311
 
 ## 프로젝트 구조
 
