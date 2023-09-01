@@ -56,8 +56,4 @@ export const MarkDown = styled(ReactMarkdown)`
     all: revert;
     line-height: 1.5;
   }
-
-  & > img {
-    max-width: 100%;
-  }
 `

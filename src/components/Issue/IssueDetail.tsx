@@ -35,7 +35,25 @@ function IssueDetail() {
             <S.IssueDetailInfo>코멘트 수 : {issue.comments}</S.IssueDetailInfo>
             <S.HR />
           </S.IssueDetailHead>
-          <S.MarkDown rehypePlugins={[rehypeRaw as any, remarkGfm]}>{issue.body}</S.MarkDown>
+          <S.MarkDown
+            components={{
+              img: ({ ...props }) => <img style={{ maxWidth: '100%' }} {...props} alt="" />,
+              pre: ({ ...props }) => (
+                <pre
+                  style={{
+                    maxWidth: '100%',
+                    padding: '8px',
+                    overflow: 'auto',
+                    border: '0.5px solid gray',
+                  }}
+                  {...props}
+                />
+              ),
+            }}
+            rehypePlugins={[rehypeRaw as any, remarkGfm]}
+          >
+            {issue.body}
+          </S.MarkDown>
         </S.IssueDetail>
       )}
       {isLoading && !errorMsg && <div>로딩중</div>}
