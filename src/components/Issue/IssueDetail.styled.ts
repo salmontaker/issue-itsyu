@@ -42,7 +42,8 @@ export const IssueDetailNumber = styled.text`
   color: white;
   background-color: black;
   border-radius: 48px;
-  padding: 2px 6px;
+  margin-right: 4px;
+  padding: 0 8px;
 `
 
 export const HR = styled.hr`

@@ -12,10 +12,10 @@ function IssueItem({ number, title, author, created_at, comments }: Props) {
     <S.IssueItem>
       <S.IssueLink to={`/detail/${number}`}>
         <S.IssueItemHead>
-          #{number} {title}
+          <S.IssueItemNumber>#{number}</S.IssueItemNumber> {title}
         </S.IssueItemHead>
         <S.IssueItemBody>
-          작성자 : {author}, 작성일 : {created_at.replace('T', ' ').replace('Z', '')}, 코멘트 :{' '}
+          작성자 : {author}, 작성일 : {created_at.replace('T', ' ').replace('Z', '')}, 코멘트 수 :{' '}
           {comments}
         </S.IssueItemBody>
       </S.IssueLink>
