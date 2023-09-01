@@ -6,6 +6,25 @@
 
 배포주소 : https://issue-itsyu.netlify.app
 
+## 개발 환경
+
+### Developement
+
+<img src="https://img.shields.io/badge/Node.js v18 (LTS)-grey?style=for-the-badge&logo=nodedotjs"> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"/>
+
+### Convention
+
+<img src="https://img.shields.io/badge/husky-brown?style=for-the-badge&logo=npm"> <img src="https://img.shields.io/badge/lint staged-white?style=for-the-badge&logo=npm"> <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white">
+
+### Network & Route
+
+<img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=React Router&logoColor=white"> 
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white"/>
+
+### Styling
+
+<img src="https://img.shields.io/badge/styled component-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/react markdown-brown?style=for-the-badge&logo=npm">
+
 ## 프로젝트 구조
 
 ```
@@ -79,25 +98,3 @@ npm install
 ```
 npm start
 ```
-
-## 사용된 라이브러리
-
-### 컨벤션
-
-- husky
-- lint-staged
-- eslint
-- prettier
-
-### 스타일
-
-- react-markdown
-- rehype-raw
-- remark-gfm
-- styled-components
-- styled-reset
-
-### 네트워크 & 라우팅
-
-- axios
-- react-router-dom
