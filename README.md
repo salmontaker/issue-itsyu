@@ -4,7 +4,7 @@
 
 특정 레포지토리([facebook/react](https://github.com/facebook/react))의 이슈 목록을 확인하는 서비스 입니다.
 
-배포주소 :
+배포주소 : https://issue-itsyu.netlify.app
 
 ## 프로젝트 구조
 
@@ -60,7 +60,7 @@ src
 git clone https://github.com/salmontaker/issue-itsyu.git
 ```
 
-2. 본 서비스는 GitHub의 [REST API](https://docs.github.com/en/rest/issues/issues)를 사용하고 있으므로, GitHub Personal Access Token이 없는 요청은 시간당 60회로 제한됩니다.<br>로컬에서의 원활한 실행을 위해 토큰 생성 후, .env 파일을 다음과 같이 설정해 주세요.
+2. 본 서비스는 GitHub의 [REST API](https://docs.github.com/en/rest/issues/issues)를 사용하고 있으므로, GitHub Personal Access Token이 없는 요청은 시간당 60회로 제한됩니다.<br>로컬에서의 원활한 실행을 위해 토큰 생성 후, [.env](https://github.com/salmontaker/issue-itsyu/blob/main/.env) 파일을 다음과 같이 설정해 주세요.
 
 ```
 // .env
