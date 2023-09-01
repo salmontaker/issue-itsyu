@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+# 이슈, 잇슈
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![android-chrome-192x192](https://github.com/salmontaker/issue-itsyu/assets/93248349/ac8664e5-1e65-4625-bc5b-99e090185a07)
 
-## Available Scripts
+특정 레포지토리([facebook/react](https://github.com/facebook/react))의 이슈 목록을 확인하는 서비스 입니다.
 
-In the project directory, you can run:
+배포주소 : 
 
-### `npm start`
+## 프로젝트 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src
+ ┣ apis
+ ┃ ┣ instance.ts
+ ┃ ┗ issue.ts
+ ┣ assets
+ ┃ ┗ adbanner.webp
+ ┣ components
+ ┃ ┣ Error
+ ┃ ┃ ┗ Error.styled.ts
+ ┃ ┣ Header
+ ┃ ┃ ┣ Header.styled.ts
+ ┃ ┃ ┗ Header.tsx
+ ┃ ┣ Issue
+ ┃ ┃ ┣ AdBanner.tsx
+ ┃ ┃ ┣ IssueDetail.styled.ts
+ ┃ ┃ ┣ IssueDetail.tsx
+ ┃ ┃ ┣ IssueItem.styled.ts
+ ┃ ┃ ┣ IssueItem.tsx
+ ┃ ┃ ┣ IssueList.styled.ts
+ ┃ ┃ ┗ IssueList.tsx
+ ┃ ┗ Layout
+ ┃ ┃ ┣ Layout.styled.ts
+ ┃ ┃ ┗ Layout.tsx
+ ┣ pages
+ ┃ ┣ ErrorPage.tsx
+ ┃ ┣ IssueDetailPage.tsx
+ ┃ ┣ IssuePage.tsx
+ ┃ ┗ PageRouter.tsx
+ ┣ styles
+ ┃ ┣ base
+ ┃ ┃ ┣ DefaultTheme.ts
+ ┃ ┃ ┗ GlobalStyles.ts
+ ┃ ┗ constants
+ ┃ ┃ ┣ colors.ts
+ ┃ ┃ ┣ flex.ts
+ ┃ ┃ ┗ fontSize.ts
+ ┣ App.tsx
+ ┣ index.tsx
+ ┣ react-app-env.d.ts
+ ┣ reportWebVitals.ts
+ ┗ setupTests.ts
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 로컬 실행방법
 
-### `npm test`
+1. 프로젝트를 clone합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone https://github.com/salmontaker/issue-itsyu.git
+```
 
-### `npm run build`
+2. 본 서비스는 GitHub의 [REST API](https://docs.github.com/en/rest/issues/issues)를 사용하고 있으므로, GitHub Personal Access Token이 없는 요청은 시간당 60회로 제한됩니다.<br>로컬에서의 원활한 실행을 위해 토큰 생성 후, 프로젝트의 루트 디렉토리에 .env파일을 생성하여 다음과 같이 설정해 주세요.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+// .env
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+REACT_APP_API_KEY = 발급밭은 토큰
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. 프로젝트 실행에 필요한 라이브러리를 설치합니다.
 
-### `npm run eject`
+```
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. 설치가 끝났다면 프로젝트를 실행합니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## 사용된 라이브러리
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 컨벤션
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- husky
+- lint-staged
+- eslint
+- prettier
+
+### 스타일
+
+- react-markdown
+- rehype-raw
+- remark-gfm
+- styled-components
+- styled-reset
+
+### 네트워크 & 라우팅
+
+- axios
+- react-router-dom
