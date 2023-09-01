@@ -4,5 +4,5 @@ import { flex } from '../../styles/constants/flex'
 export const IssueList = styled.ul`
   ${flex.flexCenter};
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 `

@@ -15,7 +15,8 @@ function IssueItem({ number, title, author, created_at, comments }: Props) {
           #{number} {title}
         </S.IssueItemHead>
         <S.IssueItemBody>
-          작성자 : {author}, 작성일 : {created_at}, 코멘트 : {comments}
+          작성자 : {author}, 작성일 : {created_at.replace('T', ' ').replace('Z', '')}, 코멘트 :{' '}
+          {comments}
         </S.IssueItemBody>
       </S.IssueLink>
     </S.IssueItem>

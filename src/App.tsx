@@ -10,6 +10,7 @@ interface AppContextType {
   issues: IssueDTO[]
   isEndOfPage: boolean
   isLoading: boolean
+  errorMsg: string
   getIssues: () => void
 }
 
@@ -20,9 +21,10 @@ function App() {
   const [page, setPage] = useState(1)
   const [isEndOfPage, setIsEndOfPage] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const getIssues = () => {
-    if (isEndOfPage) return
+    if (isEndOfPage || errorMsg) return
 
     setIsLoading(true)
     getIssuesRequest(page)
@@ -31,13 +33,13 @@ function App() {
         setPage(page + 1)
         setIsEndOfPage(data.length < ISSUES_PER_PAGE)
       })
-      .catch((e: AxiosError) => alert(e.message))
+      .catch((e: AxiosError) => setErrorMsg(e.message))
       .finally(() => setIsLoading(false))
   }
 
   return (
     <ThemeProvider theme={Theme}>
-      <AppContext.Provider value={{ issues, isEndOfPage, isLoading, getIssues }}>
+      <AppContext.Provider value={{ issues, isEndOfPage, isLoading, errorMsg, getIssues }}>
         <GlobalStyle />
         <PageRouter />
       </AppContext.Provider>

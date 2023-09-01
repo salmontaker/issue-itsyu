@@ -2,11 +2,15 @@ import { useRef, useEffect } from 'react'
 import { useAppContext } from '../../App'
 import * as S from './IssueList.styled'
 import IssueItem from './IssueItem'
-import adbanner from '../../assets/adbanner.webp'
+import AdBanner from './AdBanner'
 
 function IssueList() {
-  const { issues, isEndOfPage, isLoading, getIssues } = useAppContext()
+  const { issues, isEndOfPage, isLoading, errorMsg, getIssues } = useAppContext()
   const scrollTarget = useRef<HTMLDivElement>(null)
+
+  const isAdPosition = (index: number) => {
+    return (index + 1) % 4 === 0
+  }
 
   useEffect(() => {
     if (scrollTarget && scrollTarget.current) {
@@ -39,22 +43,15 @@ function IssueList() {
             created_at={issue.created_at}
             comments={issue.comments}
           />
-          {(index + 1) % 4 === 0 && (
-            <li>
-              <a href="https://www.wanted.co.kr/">
-                <img width={100} src={adbanner} />
-              </a>
-            </li>
-          )}
+          {isAdPosition(index) && <AdBanner />}
         </>
       ))}
-      {isLoading ? (
+      {isLoading && !errorMsg ? (
         <div>로딩중</div>
       ) : (
-        <div ref={scrollTarget}>
-          {isEndOfPage ? '가져올 데이터가 없어요!' : '스크롤 해서 데이터 가져오기'}
-        </div>
+        <div ref={scrollTarget}>{isEndOfPage && '가져올 데이터가 없어요!'}</div>
       )}
+      {errorMsg}
     </S.IssueList>
   )
 }
