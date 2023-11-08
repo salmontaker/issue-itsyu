@@ -4,7 +4,7 @@
 
 특정 레포지토리([facebook/react](https://github.com/facebook/react))의 이슈 목록을 확인하는 서비스 입니다.
 
-배포주소 : https://issue-itsyu.netlify.app
+배포주소 : https://issue-itsyu.vercel.app/
 
 ## 개발 환경
 
